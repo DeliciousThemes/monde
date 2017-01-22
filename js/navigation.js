@@ -1,81 +1,165 @@
-/**
- * navigation.js
- *
- * Handles toggling the navigation menu for small screens and enables tab
- * support for dropdown menus.
+/*!
+ * classie - class helper functions
+ * from bonzo https://github.com/ded/bonzo
+ * 
+ * classie.has( elem, 'my-class' ) -> true/false
+ * classie.add( elem, 'my-new-class' )
+ * classie.remove( elem, 'my-unwanted-class' )
+ * classie.toggle( elem, 'my-class' )
  */
-( function() {
-	var container, button, menu, links, subMenus;
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+/*jshint browser: true, strict: true, undef: true */
+/*global define: false */
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
+( function( window ) {
 
-	menu = container.getElementsByTagName( 'ul' )[0];
+'use strict';
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+// class helper functions from bonzo https://github.com/ded/bonzo
 
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
+function classReg( className ) {
+  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+}
 
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
-	};
+// classList support for class management
+// altho to be fair, the api sucks because it won't accept multiple classes at once
+var hasClass, addClass, removeClass;
 
-	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
+if ( 'classList' in document.documentElement ) {
+  hasClass = function( elem, c ) {
+    return elem.classList.contains( c );
+  };
+  addClass = function( elem, c ) {
+    elem.classList.add( c );
+  };
+  removeClass = function( elem, c ) {
+    elem.classList.remove( c );
+  };
+}
+else {
+  hasClass = function( elem, c ) {
+    return classReg( c ).test( elem.className );
+  };
+  addClass = function( elem, c ) {
+    if ( !hasClass( elem, c ) ) {
+      elem.className = elem.className + ' ' + c;
+    }
+  };
+  removeClass = function( elem, c ) {
+    elem.className = elem.className.replace( classReg( c ), ' ' );
+  };
+}
 
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( var i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
+function toggleClass( elem, c ) {
+  var fn = hasClass( elem, c ) ? removeClass : addClass;
+  fn( elem, c );
+}
 
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
+var classie = {
+  // full names
+  hasClass: hasClass,
+  addClass: addClass,
+  removeClass: removeClass,
+  toggleClass: toggleClass,
+  // short names
+  has: hasClass,
+  add: addClass,
+  remove: removeClass,
+  toggle: toggleClass
+};
 
-	/**
-	 * Sets or removes .focus class on an element.
-	 */
-	function toggleFocus() {
-		var self = this;
+// transport
+if ( typeof define === 'function' && define.amd ) {
+  // AMD
+  define( classie );
+} else {
+  // browser global
+  window.classie = classie;
+}
 
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+})( window );
 
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
 
-			self = self.parentElement;
-		}
-	}
-} )();
+(function() {
+
+    var bodyEl = document.body,
+        content = document.querySelector( '.site-content' ),
+        openbtn = document.getElementById( 'open-button' ),
+        closebtn = document.getElementById( 'close-button' ),
+        isOpen = false;
+
+    function init() {
+        initEvents();
+    }
+
+    function initEvents() {
+        openbtn.addEventListener( 'click', toggleMenu );
+        if( closebtn ) {
+            closebtn.addEventListener( 'click', toggleMenu );
+        }
+
+        // close the menu element if the target it´s not the menu element or one of its descendants..
+        content.addEventListener( 'click', function(ev) {
+            var target = ev.target;
+            if( isOpen && target !== openbtn ) {
+                toggleMenu();
+            }
+        } );
+    }
+
+    function toggleMenu() {
+        if( isOpen ) {
+            classie.remove( bodyEl, 'show-menu' );
+        }
+        else {
+            classie.add( bodyEl, 'show-menu' );
+        }
+        isOpen = !isOpen;
+    }
+
+    init();
+
+})();
+
+
+
+function fetch(callback) {
+    jQuery('.menu li').each(function() {
+        if (jQuery(this).children('ul').length > 0) {
+            var button = jQuery('<span class="m-button"><i class="fa fa-caret-down"></i></span>');
+            button.appendTo(jQuery(this));
+        }
+    });
+    callback();
+}
+fetch(function() {
+    jQuery(".m-button").each(function(){
+        jQuery(this).click(function(){
+            var ul = jQuery(this).parent().children('ul');
+            if (ul.css('display') === 'none') {
+                ul.slideDown(300);
+                jQuery(this).addClass('ul-enabled');    
+            } else {
+                ul.slideUp(300);
+                jQuery(this).removeClass('ul-enabled');  
+            }
+        });
+    });    
+}); 
+
+jQuery(window).on('resize',function() { 
+    var monde_wind = jQuery(window).width();
+
+    if(monde_wind < 1024) {
+        jQuery('.menu').removeClass('is-desktop').addClass('is-mobile');
+    }
+    else {
+        jQuery('.menu').removeClass('is-mobile').addClass('is-desktop');
+        jQuery('.sub-menu').removeAttr('style');
+    }
+
+});
+
+jQuery(document).ready(function() {
+    jQuery(window).trigger('resize');
+});

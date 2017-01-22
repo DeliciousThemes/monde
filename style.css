@@ -1088,6 +1088,17 @@ a:hover, a:active {
   color: #fff;
 }
 
+.main-navigation ul ul li.menu-item-has-children > a:after {
+  font-family: FontAwesome;
+  content: "\f107";
+  margin-left: 4px;
+  font-size: 12px;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  content: "\f105";
+  margin-left: 6px;
+}
+
 .main-navigation ul ul ul {
   opacity: 0;
   filter: alpha(opacity=0);
@@ -1144,12 +1155,179 @@ a:hover, a:active {
   display: block;
 }
 
+.menu-button {
+  position: fixed;
+  z-index: 1000;
+  margin: 1em;
+  padding: 0;
+  width: 2.5em;
+  height: 2.25em;
+  border: none;
+  text-indent: 2.5em;
+  font-size: 1.5em;
+  color: transparent;
+  background: transparent;
+}
+
+.menu-button::before {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  bottom: 0.5em;
+  left: 0.5em;
+  background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #373a47 60%, transparent 60%, transparent 80%, #373a47 80%);
+  content: '';
+}
+
+.menu-button:hover {
+  opacity: 0.6;
+}
+
+/* Close Button */
+.close-button {
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  overflow: hidden;
+  text-indent: 1em;
+  font-size: 0.75em;
+  border: none;
+  background: transparent;
+  color: transparent;
+}
+
+.close-button::before,
+.close-button::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  background: #bdc3c7;
+}
+
+.close-button::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.m-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 43px;
+  line-height: 43px;
+  padding: 0 15px;
+  cursor: pointer;
+  background: #fff;
+  font-size: 14px;
+}
+
+.m-button i {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.m-button.ul-enabled i:before {
+  content: "\f0d8";
+}
+
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
   }
   .main-navigation ul {
     display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .m-button {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .main-navigation ul.menu li.menu-item-has-children > a:after {
+    content: none !important;
+  }
+  .main-navigation ul.menu::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+  }
+  .main-navigation ul.menu::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #ddd;
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+  .main-navigation ul.menu {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    left: 0;
+    background: #efefef;
+    z-index: 100;
+    overflow-y: scroll;
+    -webkit-transform: translate3d(-320px, 0, 0);
+    transform: translate3d(-320px, 0, 0);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  .main-navigation ul.menu > li {
+    padding: 0;
+  }
+  .main-navigation ul.menu ul {
+    position: relative;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    visibility: visible;
+    display: none;
+    transform: translate3d(0, 0, 0);
+    top: 0;
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    background: inherit;
+    box-shadow: none;
+  }
+  .main-navigation ul.menu ul ul a {
+    background: #d0d0d0;
+  }
+  .main-navigation ul.menu ul a {
+    width: 100%;
+    background: #e0e0e0;
+    padding-left: 30px;
+  }
+  .main-navigation ul.menu li {
+    display: block;
+    width: 100%;
+  }
+  .main-navigation ul.menu li ul a {
+    padding-left: 30px;
+  }
+  .main-navigation ul.menu li ul ul a {
+    padding-left: 45px;
+  }
+  .main-navigation ul.menu li a {
+    padding: 12px 15px;
+  }
+  .main-navigation ul.menu li a:hover {
+    background: #b38870;
+    color: #fff;
+  }
+  .main-navigation ul.menu li:hover ul {
+    left: 0;
   }
 }
 

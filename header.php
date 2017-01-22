@@ -28,9 +28,10 @@
 			<div class="container">
 				<div class="eight columns">
 					<nav id="site-navigation" class="main-navigation" role="navigation">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'monde' ); ?></button>
+						<button class="close-button" id="close-button">Close Menu</button>
 						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-					</nav><!-- #site-navigation -->						
+					</nav><!-- #site-navigation -->	
+					<a class="menu-button" id="open-button">Open Menu</a>					
 				</div>
 
 				<div class="four columns">

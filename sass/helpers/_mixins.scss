@@ -32,6 +32,14 @@
 	display: table;
 }
 
+@mixin menu_after() {
+	font-family: FontAwesome;
+	content: "\f107";
+	margin-left: 4px;
+	font-size: 12px;
+	@include opacity(0.4);	
+}
+
 // Clear after (not all clearfix need this also)
 @mixin clearfix-after() {
 	clear: both;
