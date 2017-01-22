@@ -1,0 +1,56 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue) {
+	font-size: ($sizeValue)+px; 
+	font-size:($sizeValue/10)+rem;
+}
+
+@mixin small_style {
+	@include font-size(11);
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+@mixin after() {
+	content: "";
+	width: 40px;
+	height: 1px;
+	display: block;
+	background: $color__border-color;
+	margin: 10px 0;	
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Margin bottom
+@mixin margin-bottom($value) {
+	margin-bottom: $value*10px;
+}
+
+@mixin transition($duration) {
+    -webkit-transition:all $duration linear;
+    -moz-transition:all $duration linear;
+    -o-transition:all $duration linear;
+    transition:all $duration linear;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}

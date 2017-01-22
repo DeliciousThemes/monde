@@ -1,0 +1,71 @@
+// STRUCTURE
+
+$phi: 1.618;
+
+$base_font_size: 16;
+$px: (1/$base_font_size) *1rem;
+
+// COLORS
+
+// default color styles 
+$color__background-body: #fff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #ccc;
+$color__background-button: #e6e6e6;
+$color__background-pre: #eee;
+$color__background-ins: #fff9c0;
+
+$color__text-screen: #21759b;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+$color__link: #b38870;
+$color__link-visited: #b38870;
+$color__link-hover: #323232;
+$color__text-main: #404040;
+
+$bg_guide: #fafafa;
+
+$bg_widget_title: #fbfbfb;
+$color__black: #323232;
+
+$color__light-grey: #999 !default;
+$color__dark-grey: #333 !default;
+$color__primary-color: #323232 !default;
+$color__secondary-color: lighten($color__dark-grey, 13.5%) !default;
+$color__border-color: #efefef !default;
+$color__font-color: #545454 !default;
+
+/* misc */
+$margin__postmeta: 20px;
+ 
+
+// fonts
+$font__main: sans-serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+// from grid.scss
+
+// Breakpoints
+$bp-larger-than-mobile    : "min-width: 400px" !default;
+$bp-larger-than-phablet   : "min-width: 550px" !default;
+$bp-larger-than-tablet    : "min-width: 750px" !default;
+$bp-larger-than-desktop   : "min-width: 1000px" !default;
+$bp-larger-than-desktophd : "min-width: 1200px" !default;
+
+// Typography
+$font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-secondary: Georgia, Times New Roman, serif;
+
+//Grid Variables
+$container-width: 1120px !default;
+$container-width-larger-than-mobile: 85% !default;
+$container-width-larger-than-phablet: 80% !default;
+$total-columns: 12 !default;
+$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
+$column-margin: 4% !default; // space between columns
+
+// Misc
+$global-radius: 0px !default;

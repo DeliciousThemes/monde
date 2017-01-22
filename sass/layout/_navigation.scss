@@ -1,0 +1,167 @@
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+a {
+	color: $color__link; 
+
+	&:hover {
+		color: $color__link-hover;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:hover, 
+	&:active {
+		outline: 0; 
+	}
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	ul.menu > li {
+		padding: $phi*0.6em 0;
+		&.menu-item-has-children 
+		> a:after {
+			font-family: FontAwesome;
+			content: "\f107";
+			margin-left: 4px;
+			font-size: 12px;
+			@include opacity(0.4);
+		}
+	}
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+			@include transition(0.25s);
+			@include opacity(0);
+			transform: translate3d(0,10px,0);
+			visibility: hidden;
+			float: left;
+			position: absolute;
+			top: 4em;
+			z-index: 99999;
+			background: #fff;
+			li {
+				margin: 0;
+				a {
+					padding: 9px 15px;
+					&:hover {
+						background: $color__link;
+						color: #fff;
+					}
+				}
+			}
+
+			ul {
+				@include opacity(0);
+				visibility: hidden;
+				top: 0;
+				left: 100%;
+				margin-left: 1px;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				width: 240px;
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+			@include opacity(1);
+			visibility: visible;
+			transform: translate3d(0,0,0);
+		}
+	}
+	li {
+		float: left;
+		position: relative;
+		margin-right: 2rem;
+		margin-bottom: 0;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+		@include font-size(11);
+		letter-spacing: 1.5px;
+		padding: 5px 0;
+		font-weight: 600;
+		text-transform: uppercase;
+		display: block;
+		text-decoration: none;
+		color: $color__black;
+		&:hover {
+			color: $color__link;
+		}
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	& .nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
