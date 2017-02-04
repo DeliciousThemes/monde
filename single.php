@@ -16,7 +16,13 @@ get_header(); ?>
 
 			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
-			<?php the_post_navigation(); ?>
+			<?php 
+			 	the_post_navigation(
+				array(
+					'prev_text' => '<span>'. esc_html__('Previous Article', 'monde').'</span>%title',
+					'next_text' => '<span>'. esc_html__('Next Article', 'monde').'</span>%title'
+				));
+			 ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.

@@ -71,11 +71,6 @@ function delicious_setup() {
 		'link',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'delicious_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 }
 endif; // delicious_setup
 add_action( 'after_setup_theme', 'delicious_setup' );
@@ -99,7 +94,7 @@ add_action( 'after_setup_theme', 'delicious_content_width', 0 );
  */
 function delicious_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'delicious' ),
+		'name'          => esc_html__( 'Sidebar', 'monde' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -107,6 +102,15 @@ function delicious_widgets_init() {
 		'before_title'  => '<h2 class="widget-title"><span>',
 		'after_title'   => '</span></h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'monde' ),
+		'id'            => 'sidebar-footer-instagram',
+		'description'   => '',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title"><span>',
+		'after_title'   => '</span></h2>',
+	) );	
 }
 add_action( 'widgets_init', 'delicious_widgets_init' );
 
@@ -194,9 +198,10 @@ if(!function_exists('monde_comment')) {
 }
 
 /**
- * Implement the Custom Header feature.
+ * Implement Kirki.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/include-kirki.php';
+require_once get_template_directory() . '/inc/monde-kirki.php';
 
 /**
  * Custom template tags for this theme.
@@ -217,5 +222,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Social widget file.
+ */
+require get_template_directory() . '/inc/widgets/widget-social.php';
+require get_template_directory() . '/inc/widgets/widget-author.php';
 
 

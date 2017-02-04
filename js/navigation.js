@@ -83,7 +83,7 @@ if ( typeof define === 'function' && define.amd ) {
 (function() {
 
     var bodyEl = document.body,
-        content = document.querySelector( '.site-content' ),
+        content = document.querySelector( '.site-content'),
         openbtn = document.getElementById( 'open-button' ),
         closebtn = document.getElementById( 'close-button' ),
         isOpen = false;
@@ -110,9 +110,11 @@ if ( typeof define === 'function' && define.amd ) {
     function toggleMenu() {
         if( isOpen ) {
             classie.remove( bodyEl, 'show-menu' );
+            classie.remove( openbtn, 'open' );
         }
         else {
             classie.add( bodyEl, 'show-menu' );
+            classie.add( openbtn, 'open' );
         }
         isOpen = !isOpen;
     }
@@ -162,4 +164,8 @@ jQuery(window).on('resize',function() {
 
 jQuery(document).ready(function() {
     jQuery(window).trigger('resize');
+
+    // jQuery('.menu-button').click(function(){
+    //     jQuery(this).toggleClass('open');
+    // });   
 });

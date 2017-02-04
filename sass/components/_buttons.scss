@@ -7,11 +7,18 @@ button, .post-read-more a {
   color: $color__black;
   text-align: center;
   font-family: Georgia, serif;
-  font-style: italic;
+  font-style: italic !important;
   letter-spacing: .1rem;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.post-read-more a {
+  border-bottom: 1px solid $color__black;
+  &:hover {
+    border-color: $color__link;
+  }
 }
 
 input {

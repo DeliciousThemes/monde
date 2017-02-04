@@ -13,12 +13,27 @@
 
 	</div><!-- #content -->
 
+	<div class="footer-for-widgets">
+		<?php
+			if ( is_active_sidebar( 'sidebar-footer-instagram' ) ) { 
+				dynamic_sidebar( 'sidebar-footer-instagram' ); 
+				}		
+		?>	
+	</div>
+
 	<footer id="colophon" class="site-footer" role="contentinfo">
+
 		<div class="container">
 			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'delicious' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'delicious' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'delicious' ), 'delicious', '<a href="http://deliciousthemes.com" rel="designer">DeliciousThemes</a>' ); ?>
+				<p>
+				<?php 
+				if( (null !== get_theme_mod('monde_copyright_text')) && (get_theme_mod('monde_copyright_text') !='')) { 
+					echo wp_kses_post(get_theme_mod('monde_copyright_text'));
+				 		} else {  
+				 	esc_html_e('Copyright - Monde | All Rights Reserved', 'monde'); 
+				 }
+				?>
+			</p>
 			</div><!-- .site-info -->
 		</div>
 	</footer><!-- #colophon -->

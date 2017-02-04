@@ -28,33 +28,50 @@
 			<div class="container">
 				<div class="eight columns">
 					<nav id="site-navigation" class="main-navigation" role="navigation">
-						<button class="close-button" id="close-button">Close Menu</button>
 						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 					</nav><!-- #site-navigation -->	
-					<a class="menu-button" id="open-button">Open Menu</a>					
+					<div class="menu-button" id="open-button">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>					
 				</div>
 
 				<div class="four columns">
 					<ul id="social-nav">
-						<li><a href="#" title="" target="_blank"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" title="" target="_blank"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" title="" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-						<li><a href="#" title="" target="_blank"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#" title="" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+					<?php
+						$monde_social_links = array('rss','facebook','twitter','pinterest','instagram', 'heart' , 'youtube', 'flickr', 'google', 'dribbble', 'linkedin', 'github-alt', 'vimeo', 'tumblr', 'behance', 'vk', 'xing', 'soundcloud', 'codepen', 'yelp', 'slideshare', '500px', 'houzz',);
+
+						foreach($monde_social_links as $monde_social_link) {
+							if(!empty(get_theme_mod( $monde_social_link, '' ))) { echo '<li><a href="'. esc_url(get_theme_mod( $monde_social_link, '' )) .'" title="'. esc_attr($monde_social_link) .'" class="'.esc_attr($monde_social_link).'"  target="_blank"><i class="fa fa-'.esc_attr($monde_social_link).'"></i></a></li>';
+							}								
+						}
+						if(!empty(get_theme_mod('skype'))) { echo '<li><a href="skype:'. esc_attr(get_theme_mod('skype')) .'?call" title="'. esc_attr(get_theme_mod('skype')) .'" class="'.esc_attr(get_theme_mod('skype')).'"  target="_blank"><i class="fa fa-skype"></i></a></li>';
+						}													
+					?>
 					</ul> 
 				</div>
 				
 			</div>
 		</div>
 
-		<div class="site-branding">
+			<div class="site-branding">
+				<div class="container">
+					<?php 
+					$monde_logo_image = get_theme_mod( 'monde_logo_image', '' ); 
+					$monde_logo_image_width = get_theme_mod( 'monde_logo_image_width', '' ); 
+					$monde_logo_image_height = get_theme_mod( 'monde_logo_image_height', '' ); 
+					if($monde_logo_image != '') {
+						echo '<a href="'.esc_url( home_url( '/' ) ).'"><img src="'.esc_url($monde_logo_image).'" width="'.esc_attr($monde_logo_image_width).'" height="'.esc_attr($monde_logo_image_height).'"/></a>';
+					} else { 
+					?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php } ?>
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+				</div>
+			</div><!-- .site-branding -->
+
+		</header><!-- #masthead -->
+
+		<div id="content" class="site-content">
 			<div class="container">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-			</div>
-		</div><!-- .site-branding -->
-
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
-		<div class="container">
