@@ -912,22 +912,28 @@ object {
 .dt-button,
 button, .post-read-more a {
   display: inline-block;
-  color: #323232;
+  color: #fff;
+  background: #b38870;
   text-align: center;
-  font-family: Georgia, serif;
-  font-style: italic !important;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: .1rem;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
+  padding: 7px 12px;
 }
 
 .post-read-more a {
-  border-bottom: 1px solid #323232;
+  font-size: 11px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .post-read-more a:hover {
-  border-color: #b38870;
+  color: #fff;
+  background: #323232;
 }
 
 input[type="submit"], input[type="reset"], input[type="button"] {
@@ -1723,7 +1729,11 @@ pre, tt, var {
 }
 
 .site-info p {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 .site-branding {
@@ -1736,6 +1746,11 @@ pre, tt, var {
 :not(.home) .site-branding {
   border-bottom: 1px solid #efefef;
   margin-bottom: 8.09rem;
+}
+
+.page-template-template-blog .site-branding {
+  border: none;
+  margin-bottom: 0;
 }
 
 .site-title {
@@ -1758,6 +1773,10 @@ pre, tt, var {
 }
 
 .topbar {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  background: #fff;
   border-bottom: 1px solid #efefef;
 }
 
@@ -2044,8 +2063,9 @@ html .mc4wp-form .form-wrapper input[type="submit"]:hover {
 }
 
 .footer-for-widgets .null-instagram-feed ul.instagram-pics li {
-  width: calc(100% / 8);
+  width: calc(100% / 6);
   margin: 0;
+  padding: 2px;
 }
 
 .footer-for-widgets .null-instagram-feed p.clear {
@@ -2165,8 +2185,8 @@ html .mc4wp-form .form-wrapper input[type="submit"]:hover {
 
 .delicious-author-box .delicious-author-signature {
   font-style: italic;
-  font-size: 18px;
-  letter-spacing: 0px;
+  font-size: 22px;
+  letter-spacing: 1px;
   color: #323232;
 }
 
@@ -2338,6 +2358,224 @@ html .mc4wp-form .form-wrapper input[type="submit"]:hover {
 /* Search widget. */
 .widget_search .search-submit {
   display: none;
+}
+
+.pagenav {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+
+.pagenav * {
+  padding: 3px 16px;
+  background: #fafafa;
+  margin: 0 1px;
+  display: inline-block;
+  min-width: 30px;
+}
+
+.pagenav a {
+  color: #999;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.pagenav a:hover {
+  color: #fff;
+  background: #b38870;
+  border-color: #b38870;
+}
+
+.pagenav span.current {
+  background: #b38870;
+  color: #fff;
+}
+
+.upbtn {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 20000;
+  display: inline-block;
+  padding: 10px 12px;
+  color: #323232;
+}
+
+.arrow-top {
+  width: 40px;
+  fill: #323232;
+}
+
+.upbtn {
+  visibility: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+  -moz-transition: opacity .3s 0s, visibility 0s .3s;
+  transition: opacity .3s 0s, visibility 0s .3s;
+}
+
+.upbtn.dt-is-visible, .upbtn.dt-fade-out, .no-touch .upbtn:hover {
+  -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+  -moz-transition: opacity .3s 0s, visibility 0s 0s;
+  transition: opacity .3s 0s, visibility 0s 0s;
+}
+
+.upbtn.dt-is-visible {
+  visibility: visible;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  z-index: 10000;
+}
+
+.upbtn.dt-is-visible:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.no-touch .upbtn:hover {
+  color: #323232;
+  opacity: 1;
+}
+
+.space {
+  height: 80px;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 480px;
+}
+
+html .swiper-slide {
+  width: 62%;
+}
+
+.background-img {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.monde-slider-ov {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+.monde-slider-ov:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.monde-slider-overlay {
+  width: 52%;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  display: block;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.monde-slider-overlay .entry-header .entry-meta-secondary {
+  margin: 0;
+}
+
+.monde-slider-overlay .entry-header h2.entry-title {
+  font-size: 24px;
+  font-size: 2.4rem;
+}
+
+.searchform-wrapper {
+  display: inline-block;
+  float: right;
+  margin-left: 15px;
+  position: relative;
+  height: 60px;
+  border-left: 1px dashed #efefef;
+}
+
+.searchform-wrapper input[type="submit"] {
+  display: none;
+}
+
+.searchform-switch {
+  display: inline-block;
+  float: right;
+  position: relative;
+  width: 33px;
+  height: 60px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.searchform-switch i {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 60px;
+  position: absolute;
+  vertical-align: middle;
+}
+
+.searchform-switch i.fa-times-circle {
+  display: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.searchform-wrapper .search-form {
+  position: absolute;
+  display: none;
+  right: 0px;
+  top: 40px;
+  background: #fff;
+  width: 250px;
+  border-top: 1px solid #323232;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100002;
+}
+
+.searchform-wrapper .search-form input[type=search] {
+  float: left;
+  padding: 18px;
+  margin: 0;
+  border: none;
+  font-size: 13px;
+  font-weight: 400;
+  color: #686868;
+  background: #fff;
+}
+
+.searchform-wrapper .search-form .search-field::-webkit-input-placeholder {
+  color: #686868;
+}
+
+.searchform-wrapper .search-form .search-field:-moz-placeholder {
+  color: #686868;
+}
+
+.searchform-wrapper .search-form .search-field::-moz-placeholder {
+  color: #686868;
+}
+
+.searchform-wrapper .search-form .search-field:-ms-input-placeholder {
+  color: #686868;
+}
+
+.searchform-wrapper .search-form *:focus {
+  outline: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

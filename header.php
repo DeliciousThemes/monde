@@ -38,6 +38,15 @@
 				</div>
 
 				<div class="four columns">
+					<div class="searchform-wrapper">
+						<div class="searchform-switch">
+							<i class="fa fa-search"></i>
+							<i class="fa fa-times-circle"></i>
+						</div>
+
+						<?php get_search_form(); ?>							
+					</div>
+
 					<ul id="social-nav">
 					<?php
 						$monde_social_links = array('rss','facebook','twitter','pinterest','instagram', 'heart' , 'youtube', 'flickr', 'google', 'dribbble', 'linkedin', 'github-alt', 'vimeo', 'tumblr', 'behance', 'vk', 'xing', 'soundcloud', 'codepen', 'yelp', 'slideshare', '500px', 'houzz',);
@@ -74,4 +83,3 @@
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content">
-			<div class="container">

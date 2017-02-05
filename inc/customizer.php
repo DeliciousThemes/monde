@@ -137,14 +137,8 @@ Monde_Kirki::add_field( 'monde_theme', array(
 	'description' => esc_attr__( 'Select the primary typography options for your site.', 'monde' ),
 	'help'        => esc_attr__( 'The typography options you set here apply to headings and links.', 'monde' ),
 	'section'     => 'typography',
-	'priority'    => 10,
 	'default'     => array(
-		'font-family'    => 'Raleway',
-		// 'variant'        => '400',
-		// 'font-size'      => '16px',
-		// 'line-height'    => '1.5',
-		// 'letter-spacing' => '0',
-		// 'color'          => '#333333',
+		'font-family'    => 'Raleway'
 	),
 	'output' => array(
 		array(
@@ -159,17 +153,32 @@ Monde_Kirki::add_field( 'monde_theme', array(
 	'description' => esc_attr__( 'Select the secondary typography options.', 'monde' ),
 	'help'        => esc_attr__( 'The typography options you set here apply to text.', 'monde' ),
 	'section'     => 'typography',
-	'priority'    => 10,
 	'default'     => array(
 		'font-family'    => 'Georgia,Times,"Times New Roman",serif',
 	),
 	'output' => array(
 		array(
-			'element' => array( 'textarea', 'select', 'input:not([type="submit"])', '.post-read-more a', 'p' ),
+			'element' => array( 'textarea', 'select', 'input:not([type="submit"])', 'p' ),
 		),
 	),
 ) );
-
+Monde_Kirki::add_field( 'monde_theme', array(
+	'type'        => 'typography',
+	'settings'    => 'tertiary_typography',
+	'label'       => esc_attr__( 'Tertiary Typography', 'monde' ),
+	'description' => esc_attr__( 'Select the tertiary typography options.', 'monde' ),
+	'help'        => esc_attr__( 'The typography options you set here apply to pieces of text like "Read More".', 'monde' ),
+	'section'     => 'typography',
+	'default'     => array(
+		'font-family'    => 'Nothing You Could Do',
+		'variant'        => '400',
+	),
+	'output' => array(
+		array(
+			'element' => array( '.delicious-author-signature' ),
+		),
+	),
+) );
 
 /**
  * Add the Social section

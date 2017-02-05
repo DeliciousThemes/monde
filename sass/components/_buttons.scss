@@ -4,20 +4,23 @@
 .dt-button,
 button, .post-read-more a {
   display: inline-block;
-  color: $color__black;
+  color: #fff;
+  background: $color__link;
   text-align: center;
-  font-family: Georgia, serif;
-  font-style: italic !important;
+  font-family: $font-family;
   letter-spacing: .1rem;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: nowrap;
   cursor: pointer;
+  padding: 7px 12px; 
 }
 
 .post-read-more a {
-  border-bottom: 1px solid $color__black;
+  @include small_style();
   &:hover {
-    border-color: $color__link;
+    color: #fff;
+    background: $color__black;
   }
 }
 

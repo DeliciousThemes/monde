@@ -12,15 +12,15 @@
 
 <?php
 
-	$dt_thumb_id = get_post_thumbnail_id($post->ID);
-	$dt_alt = get_post_meta($dt_thumb_id, '_wp_attachment_image_alt', true);
+	$monde_thumb_id = get_post_thumbnail_id($post->ID);
+	$monde_alt = get_post_meta($monde_thumb_id, '_wp_attachment_image_alt', true);
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="post-thumbnail">
-		<?php the_post_thumbnail('dtblog-thumbnail', array('alt'   => $dt_alt)); ?>
+		<?php the_post_thumbnail('dtblog-thumbnail', array('alt'   => $monde_alt)); ?>
 	</div><!--end post-thumbnail-->		
 
 	<header class="entry-header">

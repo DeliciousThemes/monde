@@ -66,7 +66,11 @@
 			) );
 		?>
 
-		<?php monde_entry_tags(); ?>
+		<?php 
+		if(is_single()) {
+			monde_entry_tags(); 
+		}
+		?>
 
 	</div><!-- .entry-content -->
 
