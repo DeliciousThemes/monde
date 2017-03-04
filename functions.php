@@ -259,7 +259,7 @@ require_once get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 
 			array(
 				'name' 		=> esc_html__('Wp Instagram Widget', 'monde'),
-				'slug' 		=> 'wp-instagram-widget',
+				'slug' 		=> 'wp-instagram-widget', 
 				'version'	=> '',
 				'required' 	=> false,
 			),		
