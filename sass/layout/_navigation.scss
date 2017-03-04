@@ -33,7 +33,7 @@ a {
 	}
 
 	ul {
-		display: none;
+/* 		display: none; */
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
@@ -292,6 +292,12 @@ a {
 	}
 	.menu-button {
 		display: none;
+	}
+}
+
+@media screen and (max-width: 380px) { 
+	html .main-navigation ul.menu {
+		width: 235px;
 	}
 }
 

@@ -48,9 +48,15 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	padding: 0 1.5em;
+	border-left: 3px solid #efefef;
+	font-style: italic;
 	font-size: 1.8rem;
-	font-style: italic;	
+}
+
+blockquote p {
+	font-style: italic;
+	font-size: 1.8rem;
 }
 
 address {

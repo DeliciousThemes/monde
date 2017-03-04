@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 if ( ! function_exists( 'monde_posted_on' ) ) :
@@ -25,7 +25,7 @@ function monde_posted_on() {
 	);	
 
 	$byline = sprintf(
-		esc_html_x( 'posted by %s', 'post author', 'delicious' ),
+		esc_html_x( 'posted by %s', 'post author', 'monde' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -39,9 +39,9 @@ if( ! function_exists('monde_categories_list')) :
 function monde_categories_list() {
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'delicious' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'monde' ) );
 		if ( $categories_list && monde_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'delicious' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'monde' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}	
 }
@@ -55,9 +55,9 @@ function monde_entry_tags() {
 	if ( 'post' === get_post_type() ) {
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'delicious' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'monde' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links"><i class="fa fa-tags"></i>' . esc_html__( '%1$s', 'delicious' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links"><i class="fa fa-tags"></i>' . esc_html__( '%1$s', 'monde' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 }
@@ -72,11 +72,11 @@ function monde_entry_footer() {
 
 	if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'delicious' ), esc_html__( '1 Comment', 'delicious' ), esc_html__( '% Comments', 'delicious' ) );
+		comments_popup_link( esc_html__( 'Leave a comment', 'monde' ), esc_html__( '1 Comment', 'monde' ), esc_html__( '% Comments', 'monde' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( 'Edit', 'delicious' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'monde' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -102,13 +102,13 @@ if ( ! function_exists( 'monde_social_sharer' ) ) :
 
 		global $post;
 
-		wp_enqueue_script('delicious-social-sharer');
+		wp_enqueue_script('monde-social-sharer');
 
 		$monde_title = get_the_title($post->ID);
 		$monde_permalink = get_the_permalink($post->ID);
 		$monde_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post'); 
 
-		wp_localize_script( 'delicious-social-sharer', 'monde_social', array( 'title' => $monde_title, 'link' => $monde_permalink, 'thumbnail' => $monde_thumbnail[0]) );	
+		wp_localize_script( 'monde-social-sharer', 'monde_social', array( 'title' => $monde_title, 'link' => $monde_permalink, 'thumbnail' => $monde_thumbnail[0]) );	
 		$output = '';
 		$output .= '<div class="share-options">';
 			$output .= '<a href="#" class="twitter-sharer" onClick="twitterSharer()"><i class="fa fa-twitter"></i></a>';

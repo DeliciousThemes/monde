@@ -1,19 +1,19 @@
 /*!
 Theme Name: Monde
-Theme URI: https://deliciousthemes.com/
+Theme URI: https://deliciousthemes.com/monde/
 Author: DeliciousThemes
-Author URI: http://deliciousthemes.com
+Author URI: http://deliciousthemes.com/
 Description: A starter theme for DeliciousThemes
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: delicious
-Tags:
+Tags: blog
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Delicious Theme is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Monde Theme is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -428,9 +428,15 @@ dfn, cite, em, i {
 }
 
 blockquote {
-  margin: 0 1.5em;
-  font-size: 1.8rem;
+  padding: 0 1.5em;
+  border-left: 3px solid #efefef;
   font-style: italic;
+  font-size: 1.8rem;
+}
+
+blockquote p {
+  font-style: italic;
+  font-size: 1.8rem;
 }
 
 address {
@@ -1061,12 +1067,13 @@ a:hover, a:active {
   content: "\f107";
   margin-left: 4px;
   font-size: 12px;
+  line-height: 1.8rem;
   opacity: 0.4;
   filter: alpha(opacity=40);
 }
 
 .main-navigation ul {
-  display: none;
+  /* 		display: none; */
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -1107,6 +1114,7 @@ a:hover, a:active {
   content: "\f107";
   margin-left: 4px;
   font-size: 12px;
+  line-height: 1.8rem;
   opacity: 0.4;
   filter: alpha(opacity=40);
   content: "\f105";
@@ -1328,6 +1336,12 @@ a:hover, a:active {
   }
 }
 
+@media screen and (max-width: 380px) {
+  html .main-navigation ul.menu {
+    width: 235px;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   .topbar .four.columns {
     width: 65.33333%;
@@ -1490,7 +1504,7 @@ form {
 }
 
 .hentry {
-  margin: 0 0 3em;
+  margin: 0 0 4em;
 }
 
 .updated:not(.published) {
@@ -1734,6 +1748,7 @@ pre, tt, var {
   font-weight: 500;
   font-size: 13px;
   font-size: 1.3rem;
+  text-align: center;
 }
 
 .site-branding {
@@ -1767,9 +1782,9 @@ pre, tt, var {
 .site-description {
   margin-left: 0.5em;
   margin-top: 0.5em;
-  font-style: italic;
   clear: both;
   display: block;
+  color: #aaa;
 }
 
 .topbar {
@@ -1917,6 +1932,15 @@ html .mc4wp-form .form-wrapper input[type="submit"]:hover {
 
 .posted-on a:hover {
   color: #323232;
+}
+
+.page .entry-footer {
+  border: none;
+  margin-bottom: 40px;
+}
+
+.page .entry-footer:after {
+  content: none;
 }
 
 .entry-footer {
@@ -2454,6 +2478,24 @@ html .swiper-slide {
   width: 62%;
 }
 
+@media only screen and (max-width: 767px) {
+  html .swiper-slide {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html .monde-slider-overlay {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  html .monde-slider-overlay {
+    width: 70%;
+  }
+}
+
 .background-img {
   background-size: cover;
   width: 100%;
@@ -2493,6 +2535,10 @@ html .swiper-slide {
 .monde-slider-overlay .entry-header h2.entry-title {
   font-size: 24px;
   font-size: 2.4rem;
+}
+
+html .swiper-pagination-bullet-active {
+  background: #b38870;
 }
 
 .searchform-wrapper {

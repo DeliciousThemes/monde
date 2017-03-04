@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area.
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

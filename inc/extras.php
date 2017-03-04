@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function delicious_body_classes( $classes ) {
+function monde_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -21,4 +21,4 @@ function delicious_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'delicious_body_classes' );
+add_filter( 'body_class', 'monde_body_classes' );

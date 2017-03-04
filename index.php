@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 get_header(); ?>

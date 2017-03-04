@@ -164,8 +164,4 @@ jQuery(window).on('resize',function() {
 
 jQuery(document).ready(function() {
     jQuery(window).trigger('resize');
-
-    // jQuery('.menu-button').click(function(){
-    //     jQuery(this).toggleClass('open');
-    // });   
 });

@@ -4,23 +4,25 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 get_header(); ?>
 
 <div class="container">
+	
+	<header class="page-header">
+		<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
+		?>
+		<div class="space"></div>
+	</header><!-- .page-header -->
+
 	<div id="primary" class="content-area percent-blog sidebar-right">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>

@@ -9,10 +9,12 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 get_header(); ?>
+
+	<div class="container">
 
 	<div id="primary" class="content-area percent-blog sidebar-right">
 		<main id="main" class="site-main" role="main">
@@ -34,4 +36,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
+	</div>
 <?php get_footer(); ?>

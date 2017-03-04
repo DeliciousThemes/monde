@@ -10,10 +10,18 @@ Template Name: Blog Template
 <?php get_header(); ?>
 
 	<?php
+
+		$monde_carousel_posts = get_post_meta($post->ID, 'monde_carousel_posts', true);
+		$monde_carousel_orderby = get_post_meta($post->ID, 'monde_carousel_orderby', true);
+		$monde_carousel_order = get_post_meta($post->ID, 'monde_carousel_order', true);
+		$monde_exclude_carousel_posts = get_post_meta($post->ID, 'monde_exclude_posts', true);
+
 		$monde_slider_args = array(
 			'post_type'=> 'post',
 			'meta_key'     => '_thumbnail_id',
-			'posts_per_page' => 5
+			'orderby' => $monde_carousel_orderby,
+			'order'	=> $monde_carousel_order,
+			'posts_per_page' => $monde_carousel_posts
 		);	
 		$monde_slider_blog_query = new WP_Query($monde_slider_args);
 	?>	
@@ -46,11 +54,15 @@ Template Name: Blog Template
 		    	</div>
 		    </div>
 	<?php
+
+			$monde_exclude_posts[] = $post->ID;
+
 			endwhile;
 		endif;  
 		wp_reset_postdata();
 	?>				 
 	    </div>
+	    <div class="swiper-pagination"></div>
 	</div>	
 
 	<div class="space"></div>
@@ -67,9 +79,23 @@ Template Name: Blog Template
 	<div id="primary" class="content-area percent-blog sidebar-right">
 		<main id="main" class="site-main" role="main">
 		<?php
+
+			if ( get_query_var('paged') ) {
+			    $paged = get_query_var('paged');
+			} elseif ( get_query_var('page') ) {
+			    $paged = get_query_var('page');
+			} else {
+			    $paged = 1;
+			}	
+			$monde_exclude_array = array();
+			if($monde_exclude_carousel_posts == '1') {
+				$monde_exclude_array = $monde_exclude_posts;
+			}
+
 			$monde_args = array(
 				'post_type'=> 'post',
-				'paged'=>$paged
+				'post__not_in' => $monde_exclude_array,
+				'paged'=> $paged
 			);	
 			$monde_blog_query = new WP_Query($monde_args);
 		?>	

@@ -7,10 +7,7 @@ Posts Navigation Function
 function monde_navigation($monde_pages = '', $monde_range = 2)
 {
 	$monde_show_items = ($monde_range * 2)+1; 
-
 	global $paged;
-	if(empty($paged)) $paged = 1;
-
 	if($monde_pages == '')
 	{
 		global $wp_query, $monde_blog_query;

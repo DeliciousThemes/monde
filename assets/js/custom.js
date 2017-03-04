@@ -1,3 +1,17 @@
+// swiper
+var monde_swiper = new Swiper ('.swiper-container', {
+    loop: true,
+    pagination: '.swiper-pagination',
+    spaceBetween: 4,
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    roundLengths: true,
+    grabCursor: true,
+    
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+});
+
 jQuery(document).ready( function() {
 	'use strict';
 
@@ -22,22 +36,6 @@ jQuery(document).ready( function() {
         jQuery("html, body").animate({ scrollTop: 0 }, 700);
         return false;
     });			
-
-
-    // swiper
-	var dazzle_swiper = new Swiper ('.swiper-container', {
-	    loop: true,
-	    pagination: '.swiper-pagination',
-	    spaceBetween: 4,
-	    slidesPerView: 'auto',
-	    centeredSlides: true,
-	    roundLengths: true,
-	    grabCursor: true,
-	    // Navigation arrows
-	    nextButton: '.swiper-button-next',
-	    prevButton: '.swiper-button-prev',
-	});
-
 
 	// searchform
 	var $searchformfatimes = jQuery(".searchform-switch .fa-times-circle");

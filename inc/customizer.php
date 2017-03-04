@@ -1,8 +1,8 @@
 <?php
 /**
- * Delicious Theme Theme Customizer.
+ * Monde Theme Theme Customizer.
  *
- * @package Delicious Theme
+ * @package Monde Theme
  */
 
 /**
@@ -10,20 +10,20 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function delicious_customize_register( $wp_customize ) {
+function monde_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'delicious_customize_register' );
+add_action( 'customize_register', 'monde_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function delicious_customize_preview_js() {
-	wp_enqueue_script( 'delicious_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function monde_customize_preview_js() {
+	wp_enqueue_script( 'monde_customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'delicious_customize_preview_js' );
+add_action( 'customize_preview_init', 'monde_customize_preview_js' );
 
 
 /**
@@ -113,13 +113,23 @@ Monde_Kirki::add_field( 'monde_theme', array(
 	'section'     => 'styling',
 	'default'     => '#ffffff',
 ) );
+
 Monde_Kirki::add_field( 'monde_theme', array(
 	'type'        => 'color',
-	'settings'    => 'monde_selected_text_background_color',
-	'label'       => esc_attr__( 'Selected Text Background Color', 'monde' ),
-	'description' => esc_attr__( 'Set the background color for selected text.', 'monde' ),
+	'settings'    => 'monde_topbar_bg_color',
+	'label'       => esc_attr__( 'Top Bar Background Color', 'monde' ),
+	'description' => esc_attr__( 'Set the background color for the topbar.', 'monde' ),
 	'section'     => 'styling',
-	'default'     => '#323232',
+	'default'     => '#ffffff',
+) );
+
+Monde_Kirki::add_field( 'monde_theme', array(
+	'type'        => 'color',
+	'settings'    => 'monde_header_bg_color',
+	'label'       => esc_attr__( 'Header with Logo Background Color', 'monde' ),
+	'description' => esc_attr__( 'Set the background color for the logo/header area.', 'monde' ),
+	'section'     => 'styling',
+	'default'     => '#ffffff',
 ) );
 
 /**
@@ -158,7 +168,7 @@ Monde_Kirki::add_field( 'monde_theme', array(
 	),
 	'output' => array(
 		array(
-			'element' => array( 'textarea', 'select', 'input:not([type="submit"])', 'p' ),
+			'element' => array( 'textarea', 'select', 'input:not([type="submit"])', 'p', 'pre', 'blockquote' ),
 		),
 	),
 ) );

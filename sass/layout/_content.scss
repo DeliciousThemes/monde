@@ -52,7 +52,7 @@ form {
 }
 
 .hentry {
-	margin: 0 0 3em;
+	margin: 0 0 4em;
 }
 
 .updated:not(.published){
@@ -255,6 +255,7 @@ pre, tt, var {
 		margin: 0;
 		font-weight: 500;
 		@include font-size(13);
+		text-align: center;
 	}
 }
 
@@ -290,9 +291,9 @@ pre, tt, var {
 .site-description {
 	margin-left: 0.5em;
 	margin-top: 0.5em;
-	font-style: italic;
 	clear:both;
 	display: block;
+	color: #aaa;
 }
 
 .topbar {
@@ -429,6 +430,14 @@ html .mc4wp-form {
 		&:hover {
 			color: $color__black;
 		}
+	}
+}
+
+.page .entry-footer {
+	border: none;
+	margin-bottom: 40px;
+	&:after {
+		content: none;
 	}
 }
 
@@ -911,6 +920,28 @@ html .swiper-slide {
 	width: 62%;
 }
 
+.swiper-slide {
+	
+}
+
+@media only screen and (max-width: 767px) {
+	html .swiper-slide {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 600px) { 
+	html .monde-slider-overlay {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 1023px) { 
+	html .monde-slider-overlay {
+		width: 70%;
+	}
+}
+
 .background-img {
 	background-size: cover;
 	width: 100%;
@@ -942,6 +973,11 @@ html .swiper-slide {
 		@include font-size(24);
 	}
 }
+
+html .swiper-pagination-bullet-active {
+	background: $color__link;
+}
+
 
 // searchform topbar widget
 
