@@ -920,6 +920,12 @@ html .swiper-slide {
 	width: 62%;
 }
 
+@media only screen and (min-width: 1600px) {
+	html .swiper-slide {
+		width: calc(33% + 5px);
+	}	
+}
+
 .swiper-slide {
 	
 }

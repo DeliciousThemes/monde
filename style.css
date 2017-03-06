@@ -2478,6 +2478,12 @@ html .swiper-slide {
   width: 62%;
 }
 
+@media only screen and (min-width: 1600px) {
+  html .swiper-slide {
+    width: calc(33% + 5px);
+  }
+}
+
 @media only screen and (max-width: 767px) {
   html .swiper-slide {
     width: 100%;

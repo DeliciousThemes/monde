@@ -6,7 +6,7 @@ var monde_swiper = new Swiper ('.swiper-container', {
     slidesPerView: 'auto',
     centeredSlides: true,
     roundLengths: true,
-    grabCursor: true,
+    grabCursor: true,  
     
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
